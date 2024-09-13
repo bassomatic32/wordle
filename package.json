@@ -1,4 +1,12 @@
 {
   "name": "wordle",
-  "packageManager": "yarn@4.4.0"
+  "packageManager": "yarn@4.4.0",
+  "devDependencies": {
+    "@types/node": "^22.1.0",
+    "tsx": "^4.16.5",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "cromulence": "^0.4.0"
+  }
 }
