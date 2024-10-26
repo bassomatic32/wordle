@@ -1,5 +1,6 @@
 import { words } from "./words"
-import { Cromulence, loadWordlist } from "cromulence";
+import { Cromulence, loadWordlist } from "cromulence"
+
 
 // Main Function
 (async () => {
@@ -12,7 +13,7 @@ import { Cromulence, loadWordlist } from "cromulence";
 	})
 
 
-	console.log(`arg count: ${process.argv.length}`)
+	// console.log(`arg count: ${process.argv.length}`)
 
 	const blackList = process.argv[2]
 	console.log('Blacklist:', blackList)
@@ -42,9 +43,9 @@ import { Cromulence, loadWordlist } from "cromulence";
 
 		for (const letter of letters) {
 			const char = letter[0]
-			const negativePositions = letter.slice(1).map((x: string) => Number.parseInt(x) * -1)
+			const negativePositions = letter.slice(1).map((x: string) => -Number.parseInt(x) )
 			if ( negativePositions[0] < 0) continue
-			console.log('Negative Positions:', negativePositions)
+			// console.log('Negative Positions:', negativePositions)
 			if (negativePositions.includes(i+1)) {
 				localBlackList += char
 			}
@@ -57,12 +58,13 @@ import { Cromulence, loadWordlist } from "cromulence";
 	
 	
 	const possible = []
-	const regex = new RegExp(`${search}`,'g')
-	for (const word of words) {
-		if (regex.test(word)) {
+	const regex = new RegExp(`${search}` )
+	for (const word of words) {		
+		if (regex.test(word)) {			
 			possible.push(word)
 		}
 	}
+
 
 	const filtered = possible.filter((word: string) => {
 		for (const letter of mustHaveLetters) {
